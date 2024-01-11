@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    grid-template-columns:15% 1fr;
+    grid-template-rows: 50px 1fr 50px;
+    grid-template-areas: "zheader zheader" "znav zsection" "zfooter zfooter";
+}
+
+header {
+    grid-area: zheader;
+    background-color: black;
+    color: #fff;
+}
+
+nav {
+    grid-area: znav;
+    background-color: grey;
+}
+
+section {
+    grid-area: zsection;
+    background-color: #ddd;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+}
+
+footer {
+    grid-area: zfooter;
+    background-color: black;
+    color: #fff;
+}
+
+#contet-temas {
+    cursor: pointer;
+}
+
+.libros-lista {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.libro-item {
+    width: 300px;
+    margin: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: left;
+    transition: box-shadow 0.3s ease;
+}
+
+.libros-lista {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.libro-item:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.libro-imagen {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.libro-titulo {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.libro-autor {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.libro-precio {
+    font-size: 16px;
+    color: #b71c1c;
+    font-weight: bold;
+}
