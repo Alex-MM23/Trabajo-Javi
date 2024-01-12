@@ -1,0 +1,131 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: black;
+    grid-template-columns: 1fr;
+    grid-template-rows: 20% 10% 1fr 30%;
+    grid-template-areas:
+        "zheader"
+        "znav"
+        "zsection"
+        "zfooter";
+}
+
+header {
+    grid-area: zheader; 
+    display: flex; 
+    margin-top: 3%;
+}
+/* .search{
+    margin-top: -1%;
+    margin-left: -3.8%;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#input {
+    padding: 8px;
+    font-size: 16px;
+    margin-bottom: 10px;
+} */
+
+.logo{
+    margin-top: -11%;
+    margin-left: 8%;
+}
+
+/* .plus{
+    color: #fff;
+    margin-top: -0.1%;
+    margin-left: 15%;
+    font-size: 30px;
+} */
+
+.user{
+    height: 70px;
+    margin-top: -30%;
+    margin-left: 830%;
+}
+
+.login{
+    color: white;
+    display: flex;
+    height: 30px;
+    margin-top: 0.1%;
+    margin-left: 31.5%;
+    
+}
+
+.registro{
+    color: white;
+    display: flex;
+    height: 30px;
+    margin-top: 0.1%;
+    margin-left: 0.5%;
+}
+
+nav{
+    grid-area: zheader; 
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    list-style: none;
+    text-align: center;
+    display: flex;
+    width: 67.7%;
+    justify-content: space-evenly;
+    margin: 30px 240px; 
+    margin-top: -12%;
+    box-shadow: 10px 10px 20px rgba(0, 13, 251, 0.5);
+}
+
+nav li {
+    margin: 20px;
+    cursor: pointer;
+}
+
+nav li:hover{
+    color: rgb(255, 255, 255);
+}
+
+/*.publicidad{
+    margin-top: 0.5%;
+    margin-left: 26%;
+}*/
+
+section {
+    grid-area: zsection;
+    color: white;
+    text-align: left;   
+    font-size: 30px;
+    margin: 30px 240px; 
+    margin-top: 2%;
+    width: 67.5%;
+    height: 250px;
+    background-color: #007bff; 
+    box-shadow: 10px 10px 20px rgba(0, 13, 251, 0.5);
+}
+
+
+
+
+footer {
+    grid-area: zfooter;
+    
+    margin-top: 23%;
+    color: white;
+    text-align: center;
+} 
