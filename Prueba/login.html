@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='assets/styles/main.css'>
+    <script>
+    
+    function login() {
+        var username = document.getElementById("alias").value;
+        var password = document.getElementById("password").value;
+    
+        const URL = `assets/php/servidor.php?peticion=login&alias=${username}&password=${password}` ;
+        fetch(URL)
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data)
+            if (data.length == 0){
+                window.location.href = 'login.html';
+                alert("Contraseña o Usuario incorrecto!")
+            }else{
+                window.location.href = 'index.html';
+            }
+        })
+        .catch(error => {
+            console.error('Error en la solicitud fetch:', error);
+        });
+    }
+    
+    </script>
+</head>
+
+<body class="ht">
+    <div class="container">
+        <div class="form_top">
+            <h1>Inicio de Sesion</h1>
+        </div>
+        <form action="" method="post" class="form_reg" id="loginForm">
+            <div class="form_control">
+                <label for="alias">Usuario:</label>
+                <p><input type="text" name="alias" id="alias" required></p>
+            </div>
+            <div class="form_control">
+                <label for="password">Contraseña:</label>
+                <p><input type="password" name="password" id="password" required></p>
+            </div>
+            <div class="bnt_form">
+                <p><input type="button" value="Iniciar Sesion" class="btn_submit" onclick="login()"></p>
+            </div>
+        </form>
+        <div class="button">
+            <p><a href="registro.html" class="link">Registrate</a></p>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

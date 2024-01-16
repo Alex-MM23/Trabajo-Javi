@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.incio-body {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns:15% 1fr;
+    grid-template-rows: 50px 1fr 50px;
+    grid-template-areas: "zheader zheader" "znav zsection" "zfooter zfooter";
+}
+
+header {
+    grid-area: zheader;
+    background-color: black;
+    color: #fff;
+}
+
+nav {
+    grid-area: znav;
+    background-color: grey;
+}
+
+section {
+    grid-area: zsection;
+    background-color: #ddd;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+}
+
+footer {
+    grid-area: zfooter;
+    background-color: black;
+    color: #fff;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ht {
+	height: 100vh;
+}
+
+a {
+	text-decoration: none;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+}
+
+.form_top h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.form_top h3 {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #888;
+}
+
+.form_reg label {
+    font-size: 14px;
+    color: #333;
+}
+
+.form_control {
+    margin-bottom: 20px;
+}
+
+.form_control input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.bnt_form input {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button a {
+    text-decoration: none;
+    color: #3498db;
+    font-size: 14px;
+}
+
+.button a:hover {
+    text-decoration: underline;
+}
+
+.form_control input:focus {
+	outline: 0;
+	border-color: rgb(255, 255, 255);
+}
+
+/* Clases del Mensaje/Foro */
+
+.inicio-body {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.mensaje {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.foro {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.informacion-usuario {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.nombre-usuario {
+    font-weight: bold;
+}
+
+.fecha-publicacion {
+    color: #888;
+}
+
+.contenido-mensaje {
+    line-height: 1.5;
+}
+
+.registro-form {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px; 
+    width: 300px; 
+    text-align: center;
+}
+
+.registro-title {
+    font-size: 18px; 
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.registro-subtitle {
+    font-size: 12px; 
+    margin-bottom: 10px;
+    color: #888;
+}
+
+.registro-label {
+    font-size: 10px; 
+    color: #333;
+}
+
+.registro-input {
+    width: 100%;
+    padding: 6px; 
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 8px; 
+    font-size: 10px; 
+}
+
+.registro-submit {
+    background-color: #3498db;
+    color: #fff;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px; 
+}
+
+.registro-link {
+    text-decoration: none;
+    color: #3498db;
+    font-size: 10px; 
+}
+
+.registro-link:hover {
+    text-decoration: underline;
+}

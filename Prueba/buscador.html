@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorador de Temas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #app {
+            max-width: 600px;
+            margin: 50px auto;
+        }
+
+        #entradaBusqueda {
+            width: 70%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        #btnBuscar {
+            width: 30%;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #listaTemas {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .tema {
+            border: 1px solid #ddd;
+            margin-bottom: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .tema:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <input type="text" id="entradaBusqueda" placeholder="Buscar temas...">
+        <button id="btnBuscar">Buscar</button>
+        <ul id="listaTemas"></ul>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const entradaBusqueda = document.getElementById("entradaBusqueda");
+            const btnBuscar = document.getElementById("btnBuscar");
+            const listaTemas = document.getElementById("listaTemas");
+
+            function renderizarListaTemas(temasRenderizados) {
+                listaTemas.innerHTML = "";
+                temasRenderizados.forEach(tema => {
+                    const elementoTema = document.createElement("li");
+                    elementoTema.className = "tema";
+                    elementoTema.textContent = `${tema.nombre} - ${tema.descripcion}`;
+                    elementoTema.addEventListener("click", () => {
+                        console.log("Tema seleccionado:", tema);
+                    });
+                    listaTemas.appendChild(elementoTema);
+                });
+            }
+
+            function manejarBusqueda() {
+                const terminoBusqueda = entradaBusqueda.value.toLowerCase();
+
+                // Realizar la solicitud al servidor PHP para obtener los temas
+                fetch(`servidor.php?termino=${terminoBusqueda}`)
+                    .then(response => response.json())
+                    .then(data => renderizarListaTemas(data))
+                    .catch(error => console.error("Error al obtener temas:", error));
+            }
+
+            btnBuscar.addEventListener("click", manejarBusqueda);
+
+            // Renderizar la lista inicial al cargar la página
+            manejarBusqueda();
+        });
+    </script>
+</body>
+</html>
+
