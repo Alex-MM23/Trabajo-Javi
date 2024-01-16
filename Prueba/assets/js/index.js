@@ -1,3 +1,47 @@
+function login() {
+    var username = document.getElementById("alias").value;
+    var password = document.getElementById("password").value;
+
+    const URL =  `assets/php/servidor.php?peticion=login&alias=${username}&password=${password}` ;
+    fetch(URL)
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data)
+        if (data.length == 0){
+            window.location.href = 'index.html';
+            alert("Contraseña o Usuario incorrecto!")
+        }else{
+            window.location.href = 'pantalla2.html';
+        }
+    })
+    .catch(error => {
+        console.error('Error en la solicitud fetch:', error);
+    });
+}
+
+function registro(){
+    var username = document.getElementById("alias").value;
+    var password = document.getElementById("password").value;
+    /*var email = document.getElementById("email").value;*/
+    
+    const URL =  `assets/php/servidor.php?peticion=login&alias=${username}&password=${password}`;
+    fetch(URL)
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data)
+        if (data.length == 0){
+            window.location.href = 'register.html';
+            alert("¡Usuario registrado!")
+        }else{
+            window.location.href = 'index.html';
+            
+        }
+    })
+    .catch(error => {
+        console.error('Error en la solicitud fetch:', error);
+    });
+}
+
 function fInicio() {
     fCargarTemas();
 }
@@ -42,21 +86,7 @@ function fCargarMensajes(tema_id) {
         })
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    const btnLogin = document.getElementById("btnLogin");
-
-    function manejarLogin() {
-        const alias = document.getElementById("alias").value;
-        const password = document.getElementById("password").value;
-
-        // Realizar la solicitud al servidor PHP para realizar el login
-        // Esta vez, simplemente actualizaremos la página con la URL correcta
-        window.location.href = `servidor.php?peticion=login&alias=${encodeURIComponent(alias)}&password=${encodeURIComponent(password)}`;
-    }
-
-    btnLogin.addEventListener("click", manejarLogin);
-});
-
+/*
 document.addEventListener("DOMContentLoaded", function () {
     const entradaBusqueda = document.getElementById("entradaBusqueda");
     const btnBuscar = document.getElementById("btnBuscar");
@@ -74,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
             listaTemas.appendChild(elementoTema);
         });
     }
-
+/*
     function manejarBusqueda() {
         const terminoBusqueda = entradaBusqueda.value.toLowerCase();
 
@@ -88,5 +118,5 @@ document.addEventListener("DOMContentLoaded", function () {
     btnBuscar.addEventListener("click", manejarBusqueda);
 
     // Renderizar la lista inicial al cargar la página
-    manejarBusqueda();
-});
+    manejarBusqueda();*/
+    

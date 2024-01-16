@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORO TECH</title>
+    <link rel="stylesheet" href="assets/styles/index.css">
+    <link rel="stylesheet" href="assets/fontawesome-free-5.15.4-web/css/all.min.css">
+    <script src="assets/fontawesome-free-5.15.4-web/js/all.min.js"></script>
+</head>
+
+<body onload="fInicio()">
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="assets/img/LOGO.png" alt="logo">
+            </div>
+
+        <!--<div>
+                <input type="text" id="entradaBusqueda" placeholder="Buscar temas...">
+                <button id="btnBuscar">Buscar</button>
+                <ul id="listaTemas"></ul>
+        </div>-->
+
+            <div class="plus">
+                <i class="fas fa-plus" onclick="fVerModal('#form_tema')"></i>
+            </div>
+
+            <div>
+                <img class="user" src="assets/img/icono1.png" alt="user">
+            </div>
+
+          
+            
+        </header>
+        <nav>
+            <div onclick="fCargarMensajes()"></div>
+
+        </nav>
+
+        <section>
+
+        </section>
+        <footer>
+            <p>&copy; 2024 ForoTech.SL</p>
+        </footer>
+    </div>
+
+    <script src="assets/js/index.js"></script>
+</body>
+
+</html>
