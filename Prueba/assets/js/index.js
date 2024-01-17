@@ -24,17 +24,17 @@ function registro(){
     var password = document.getElementById("password").value;
     /*var email = document.getElementById("email").value;*/
     
-    const URL =  `assets/php/servidor.php?peticion=login&alias=${username}&password=${password}`;
+    const URL = `assets/php/servidor.php?peticion=login&alias=${username}&password=${password}`;
     fetch(URL)
     .then((response) => response.json())
     .then((data) => {
         console.log(data)
         if (data.length == 0){
             window.location.href = 'register.html';
-            alert("¡Usuario registrado!")
+            
         }else{
             window.location.href = 'index.html';
-            
+             
         }
     })
     .catch(error => {
@@ -85,6 +85,33 @@ function fCargarMensajes(tema_id) {
             document.querySelector("section").innerHTML = html;
         })
 }
+
+function cerrar(){
+    document.getElementById('cerrar').addEventListener('click', function(){
+        window.location.href = 'index.html';
+    })
+}
+
+function fAgregar(){
+    document.querySelector("#mensajes_accion").value=accion;
+    document.querySelector("#mensajes_id").value=id;
+    fetch(URL)
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data)
+        if (data.length == 0){
+            window.location.href = 'agregar.html';
+            
+        }else{
+            window.location.href = 'pantalla2.html';
+             
+        }
+    })
+    .catch(error => {
+        console.error('Error en la solicitud fetch:', error);
+    });
+}
+
 
 /*
 document.addEventListener("DOMContentLoaded", function () {

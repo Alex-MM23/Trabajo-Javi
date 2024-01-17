@@ -39,7 +39,19 @@ if (isset($_REQUEST['peticion'])) {
             $datos = BBDD_CTRLR::Consultas($sql);
             echo json_encode($datos);
             break;
+        case "fAgregar":
+            $men_mensaje = $_REQUEST['men_mensaje'];
+            $men_tema_id = $_REQUEST['men_tema_id'];
 
+            $sql = "INSERT INTO mensajes VALUES (null, '$men_mensaje', $men_tema_id, '1', null)";
+
+            $forma_de_respuesta = "id";
+            $datos['sql'] = $sql;
+            $datos['respuesta'] = BBDD_CTRLR::CRUD($sql, $forma_de_respuesta);
+            // Devuelvo los datos codificados en JSON
+            echo json_encode($datos);
+            break; 
+        
         
     }
 }

@@ -87,18 +87,34 @@ header {
 
 .plus{
     color: #fff;
-    margin-top: 2.1%;
-    margin-left: 2%;
+    margin-top: 2.6%;
+    margin-left: 22%;
     font-size: 30px;
 }
 
 .user{
     height: 70px;
-    margin-top: 16%;
-    margin-left: 76%;
+    margin-left: 90%;
+    margin-top: 26%;
+    
 }
 
+#cerrar{
+    width: 80px;
+    height: 45px;
+    margin-top: 30px;
+    margin-left: 5.5%;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
 
+#cerrar:hover{
+    background-color: #5dade2;
+    box-shadow: 0 0 20px rgba(52, 152, 219, 0.8);
+}
 
 nav{
     grid-area: zheader; 

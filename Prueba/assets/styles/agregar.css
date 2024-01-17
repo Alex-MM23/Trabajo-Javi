@@ -61,7 +61,7 @@ section span:hover {
   transition: 0s;
 }
 
-section .signin {
+section .padre {
   position: absolute;
   width: 400px;
   background: #222;
@@ -74,7 +74,7 @@ section .signin {
   box-shadow: 0 15px 35px rgba(0, 0, 0, 9);
 }
 
-section .signin .content {
+section .padre .content {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -83,30 +83,30 @@ section .signin .content {
   gap: 40px;
 }
 
-section .signin .content h2 {
+section .padre .content h2 {
   font-size: 2em;
   color: #007bff;
   text-transform: uppercase;
 }
 
-section .signin .content .form {
+section .padre .content .form {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
 
-section .signin .content .form .form_control {
+section .padre .content .form .form_control {
   width: 100%;
 }
 
-section .signin .content .form .form_control label {
+section .padre .content .form .form_control label {
   color: #fff;
   font-size: 1em;
   margin-bottom: 5px;
 }
 
-section .signin .content .form .form_control input {
+section .padre .content .form .form_control input {
   width: 100%;
   background: #333;
   border: none;
@@ -118,38 +118,13 @@ section .signin .content .form .form_control input {
   font-size: 1em;
 }
 
-section .signin .content .form .links {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
-section .signin .content .form .links a {
-  color: #fff;
-  text-decoration: none;
-}
-
-section .signin .content .form .links a:nth-child(2) {
-  color: #007bff;
-  font-weight: 600;
-}
-
-section .signin .content .form .inputBox input[type="submit"] {
-  padding: 10px;
-  background: #007bff;
-  color: #000;
-  font-weight: 600;
-  font-size: 1.35em;
-  letter-spacing: 0.05em;
-  cursor: pointer;
-}
-
-section .signin .content .form_control label[for="alias"],
-section .signin .content .form_control label[for="password"] {
+section .padre .content .form_control label[for="alias"],
+section .padre .content .form_control label[for="mensaje"],
+section .padre .content .form_control label[for="temas"] {
   color: #fff;
 }
 
-.btnLogin {
+.btnEnviar {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
@@ -160,7 +135,7 @@ section .signin .content .form_control label[for="password"] {
   border-radius: 5px;
 }
 
-.btnLogin:hover {
+.btnEnviar:hover {
   background-color: #5dade2;
   box-shadow: 0 0 20px rgba(52, 152, 219, 0.8);
 }
