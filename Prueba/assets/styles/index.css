@@ -85,17 +85,25 @@ header {
     margin-left: 11%;
 }
 
+.borrar{
+    color: #0b0b0b;
+    margin-top: 3%;
+    margin-left: 40px;
+    height: 15%;
+    width: 5%;
+}
+
+
 .plus{
     color: #fff;
     margin-top: 2.6%;
-    margin-left: 22%;
     font-size: 30px;
 }
 
 .user{
     height: 70px;
-    margin-left: 90%;
-    margin-top: 26%;
+    margin-left: 10px;
+    margin-top: 1%;
     
 }
 

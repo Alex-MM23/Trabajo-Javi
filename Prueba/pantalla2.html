@@ -17,24 +17,24 @@
                 <img src="assets/img/LOGO.png" alt="logo">
             </div>
 
-        <!--<div>
-                <input type="text" id="entradaBusqueda" placeholder="Buscar temas...">
+            <div>
+                <input type="text" id="entradaBusqueda" placeholder="Buscar mensajes...">
                 <button id="btnBuscar">Buscar</button>
                 <ul id="listaTemas"></ul>
-        </div>-->
-
+            </div>
+            <div class="borrar">
+                <button onclick="fBorrar()">Borrar</button>
+            </div>
             <div class="plus">
                 <i class="fas fa-plus" onclick="fAgregar()"></i>
             </div>
+
             
-                
-            
-            <div>
+            <button id="cerrar" onclick="cerrar()">Cerrar Sesión</button>
+            <div class="user">
                 <img class="user" src="assets/img/icono1.png" alt="user">
             </div>
-            <button id="cerrar" onclick="cerrar()">Cerrar Sesión</button>
-          
-            
+
         </header>
         <nav>
             <div onclick="fCargarMensajes()"></div>

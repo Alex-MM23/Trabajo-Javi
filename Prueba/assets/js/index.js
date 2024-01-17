@@ -92,26 +92,19 @@ function cerrar(){
     })
 }
 
-function fAgregar(){
-    document.querySelector("#mensajes_accion").value=accion;
-    document.querySelector("#mensajes_id").value=id;
-    fetch(URL)
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data)
-        if (data.length == 0){
-            window.location.href = 'agregar.html';
-            
-        }else{
-            window.location.href = 'pantalla2.html';
-             
-        }
-    })
-    .catch(error => {
-        console.error('Error en la solicitud fetch:', error);
-    });
+function fBorrar(){
+    window.location.href = 'borrar.html';
 }
 
+function fAgregar(){
+    window.location.href = 'agregar.html';
+}
+
+function volver(){
+    document.getElementById('volver').addEventListener('click', function(){
+        window.location.href = 'pantalla2.html';
+    })
+}
 
 /*
 document.addEventListener("DOMContentLoaded", function () {

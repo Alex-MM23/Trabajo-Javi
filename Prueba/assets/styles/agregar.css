@@ -139,3 +139,25 @@ section .padre .content .form_control label[for="temas"] {
   background-color: #5dade2;
   box-shadow: 0 0 20px rgba(52, 152, 219, 0.8);
 }
+
+#volver {
+  width: 100%;
+  padding: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+#volver:hover {
+  background-color: #5dade2;
+  box-shadow: 0 0 20px rgba(52, 152, 219, 0.8);
+}
+
+.botones{
+  display: flex;
+  
+}
