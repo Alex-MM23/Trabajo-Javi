@@ -19,6 +19,30 @@ function login() {
     });
 }
 
+/*function registro() {
+    var nombre = document.getElementById("nombre").value;
+    var alias = document.getElementById("alias").value;
+    var pasword = document.getElementById("password").value;
+    var foto = document.getElementById("foto").value;
+
+    const URL = `assets/php/servidor.php?peticion=registro&nombre=${nombre}&alias=${alias}&pasword=${pasword}&foto=${foto}` ;
+    fetch(URL)
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data)
+        if (data.length == 0){
+            window.location.href = 'register.html';
+            
+        }else{
+            window.location.href = 'index.html';
+             
+        }
+    })
+    .catch((error) => {
+        console.error('Error en la solicitud fetch:', error);
+    });
+}*/
+
 function registro(){
     var username = document.getElementById("alias").value;
     var password = document.getElementById("password").value;
@@ -92,12 +116,58 @@ function cerrar(){
     })
 }
 
-function fBorrar(){
-    window.location.href = 'borrar.html';
+function fBorrarT(){
+    window.location.href = 'borrarT.html';
 }
 
-function fAgregar(){
-    window.location.href = 'agregar.html';
+function fBorrarM(){
+    window.location.href = 'borrarM.html';
+}
+
+function AgregarTema(){
+    window.location.href = 'agregarT.html';
+
+    var tema = document.getElementById("temaInput").value ;
+
+    const URL = `assets/php/servidor.php?peticion=AgregarTema&tema=${tema_tema}&tema=${tema_id}`;
+    fetch(URL)
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data)
+        if (data.length == 0){
+            
+            alert("¡Tema añadido!")
+        }else{
+            window.location.href = 'pantalla2.html';
+        }
+
+    })
+    .catch(error => {
+        console.error('Error en la solicitud fetch:', error);
+    });
+}
+
+function AgregarMensaje(){
+    window.location.href = 'agregarM.html';
+   
+    var mensaje = document.getElementById("messageInput").value ;
+
+    const URL = `assets/php/servidor.php?peticion=AgregarMensaje&mensaje=${mensaje}&temas=${tema_id}`;
+    fetch(URL)
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data)
+        if (data.length == 0){
+            
+            alert("¡Mensaje añadido!")
+        }else{
+            window.location.href = 'pantalla2.html';
+        }
+
+    })
+    .catch(error => {
+        console.error('Error en la solicitud fetch:', error);
+    });
 }
 
 function volver(){

@@ -6,7 +6,7 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <title>Page Title</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <link rel='stylesheet' type='text/css' media='screen' href='assets/styles/login.css'>
+  <link rel='stylesheet' type='text/css' media='screen' href='assets/styles/agregar.css'>
 
 </head>
 
@@ -273,28 +273,26 @@
     <span></span>
     <span></span>
 
-    <div class="signin">
-      <div class="content">
-        <h2>Registro</h2>
-
-        <div class="form_control">
-          <label for="alias">Usuario:</label>
-          <p><input type="text" name="alias" id="alias" required></p>
+    <div class="padre">
+        <div class="content">
+          <h2>Agregar Temas</h2>
+  
+          <div class="form_control">
+            <label for="alias">Usuario:</label>
+            <p><input type="text" name="alias" id="alias" required></p>
+          </div>
+          <div class="form_control">
+            <label for="temas">Tema:</label>
+            <p><input type="text" name="temas" id="temas" required></p>
+          </div>
+          
+          <div class="botones">
+            <button class="btnEnviar" onclick="AgregarTema()">
+              Enviar
+            </button>
+            <button id="volver" onclick="volver()">Volver</button>
+          </div>
         </div>
-        <div class="form_control">
-          <label for="password">Contraseña:</label>
-          <p><input type="password" name="password" id="password" required></p>
-        </div>
-        
-        <div>
-          <button class="btnLogin" onclick="registro()">
-            Registrarse
-          </button>
-          <p><a href="index.html" class="registro-link">Volver al Login</a></p>
-        </div>
-        
-      </div>
-    </div>
     </div>
   </section>
 

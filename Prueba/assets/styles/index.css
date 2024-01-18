@@ -26,7 +26,7 @@ header {
     margin: 50px auto;
     
 }
-
+/*
 #entradaBusqueda {
     width: 100%;
     padding: 10px;
@@ -50,13 +50,6 @@ header {
     background-color: #f0f0f0;
 }
 
-#input {
-    padding: 8px;
-    font-size: 16px;
-    margin-bottom: 10px;
-
-}
-
 #entradaBusqueda {
     width: 70%;
     padding: 10px;
@@ -78,7 +71,7 @@ header {
 #listaTemas {
     
     padding: 0;
-}
+}*/
 
 .logo{
     margin-top: -11%;
@@ -91,14 +84,7 @@ header {
     margin-left: 40px;
     height: 15%;
     width: 5%;
-}
-
-
-.plus{
-    color: #fff;
-    margin-top: 2.6%;
-    font-size: 30px;
-}
+}   
 
 .user{
     height: 70px;
@@ -111,7 +97,7 @@ header {
     width: 80px;
     height: 45px;
     margin-top: 30px;
-    margin-left: 5.5%;
+    margin-left: 27.5%;
     cursor: pointer;
     background-color: #007bff;
     color: white;
@@ -147,11 +133,6 @@ nav li:hover{
     color: rgb(255, 255, 255);
 }
 
-/*.publicidad{
-    margin-top: 0.5%;
-    margin-left: 26%;
-}*/
-
 section {
     grid-area: zsection;
     color: white;
@@ -165,11 +146,43 @@ section {
     box-shadow: 10px 10px 20px rgba(0, 13, 251, 0.5);
 }
 
+.input-box {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    width: 40%;
+    margin-left: 30%;
+    border-top: 1px solid #ccc;
+  }
+  
+.input-box input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+  
+.input-box button {
+    padding: 8px 15px;
+    background-color: #007bff; 
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.message {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #e6f7ff; /* Color de fondo del mensaje */
+}
 
 footer {
     grid-area: zfooter;
-    
-    margin-top: 14%;
+    margin-top: 7%;
     color: white;
     text-align: center;
 } 

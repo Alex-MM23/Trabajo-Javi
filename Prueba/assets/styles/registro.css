@@ -118,23 +118,23 @@ section .signin .content .form .form_control input {
   font-size: 1em;
 }
 
-section .signin .content .form .links {
+section .register .content .form .links {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-section .signin .content .form .links a {
+section .register .content .form .links a {
   color: #fff;
   text-decoration: none;
 }
 
-section .signin .content .form .links a:nth-child(2) {
+section .register .content .form .links a:nth-child(2) {
   color: #007bff;
   font-weight: 600;
 }
 
-section .signin .content .form .inputBox input[type="submit"] {
+section .register .content .form .inputBox input[type="submit"] {
   padding: 10px;
   background: #007bff;
   color: #000;
@@ -160,8 +160,9 @@ section .signin .content .form .inputBox input[type="submit"] {
   box-shadow: 0 0 20px rgba(52, 152, 219, 0.8);
 }
 
-section .signin .content .form_control label[for="alias"],
-section .signin .content .form_control label[for="password"] {
+
+section .register .content .form_control label[for="alias"],
+section .register .content .form_control label[for="password"] {
   color: #fff;
 }
 

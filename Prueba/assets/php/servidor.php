@@ -31,24 +31,18 @@ if (isset($_REQUEST['peticion'])) {
             echo json_encode($datos);
             break;
         case "registro":
-            $nombre = $_REQUEST["nombre"];
             $alias = $_REQUEST["alias"];
             $password = $_REQUEST["password"];
-            $foto = $_REQUEST["foto"];
-            $sql = "INSERT INTO usuarios (usu_nombre, usu_alias, usu_password, usu_foto) VALUES (:nombre, :alias, :password, :foto)";
+            $sql = "INSERT INTO usuarios (usu_alias, usu_password) VALUES (:alias, :password)";
             $datos = BBDD_CTRLR::Consultas($sql);
             echo json_encode($datos);
             break;
-        case "fAgregar":
-            $men_mensaje = $_REQUEST['men_mensaje'];
-            $men_tema_id = $_REQUEST['men_tema_id'];
-
-            $sql = "INSERT INTO mensajes VALUES (null, '$men_mensaje', $men_tema_id, '1', null)";
-
-            $forma_de_respuesta = "id";
-            $datos['sql'] = $sql;
-            $datos['respuesta'] = BBDD_CTRLR::CRUD($sql, $forma_de_respuesta);
-            // Devuelvo los datos codificados en JSON
+        case "AgregarMensaje":
+            $mensaje = $_REQUEST["mensaje"];
+            $tema_id = $_REQUEST["tema_id"];
+            $usu_id = 1;
+            $sql = "INSERT INTO mensajes (men_mensaje, men_tema_id, men_usu_id, men_fecha_hora) VALUES ('$mensaje', $tema_id, $usu_id, NOW())";
+            $datos = BBDD_CTRLR::Consultas($sql);
             echo json_encode($datos);
             break; 
         

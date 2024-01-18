@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FORO TECH</title>
     <link rel="stylesheet" href="assets/styles/index.css">
-    <link rel="stylesheet" href="assets/fontawesome-free-5.15.4-web/css/all.min.css">
-    <script src="assets/fontawesome-free-5.15.4-web/js/all.min.js"></script>
+
 </head>
 
 <body onload="fInicio()">
@@ -17,18 +16,11 @@
                 <img src="assets/img/LOGO.png" alt="logo">
             </div>
 
-            <div>
+            <!--<div>
                 <input type="text" id="entradaBusqueda" placeholder="Buscar mensajes...">
                 <button id="btnBuscar">Buscar</button>
                 <ul id="listaTemas"></ul>
-            </div>
-            <div class="borrar">
-                <button onclick="fBorrar()">Borrar</button>
-            </div>
-            <div class="plus">
-                <i class="fas fa-plus" onclick="fAgregar()"></i>
-            </div>
-
+            </div>-->
             
             <button id="cerrar" onclick="cerrar()">Cerrar Sesión</button>
             <div class="user">
@@ -40,10 +32,30 @@
             <div onclick="fCargarMensajes()"></div>
 
         </nav>
-
+       
         <section>
 
         </section>
+        <div class="input-box">
+            <div >
+                <input type="text" id="temaInput" placeholder="Agregar un tema nuevo">
+                <button onclick="AgregarTema()">Enviar</button>
+            
+                <input type="text" id="messageInput" placeholder="Agregar un mensaje nuevo">
+                <button onclick="AgregarMensaje()">Enviar</button>
+            </div>
+                <div>
+                <input type="text" id="BorrarInput" placeholder="Borrar un tema">
+                <button onclick="fBorrarT()">Borrar</button>
+
+                <input type="text" id="BorrarInput" placeholder="Borrar un mensaje">
+                <button onclick="fBorrarM()">Borrar</button>
+            </div>
+            
+            
+            
+    
+        </div>
         <footer>
             <p>&copy; 2024 ForoTech.SL</p>
         </footer>
