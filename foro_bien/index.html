@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORO SPARTAN</title>
+    <link rel="stylesheet" href="assets/estilos/style.css">
+    <link rel="stylesheet" href="assets/fontawesome-free-5.15.4-web/css/all.min.css">
+    <script src="assets/js/script.js"></script>
+    <script src="assets/fontawesome-free-5.15.4-web/js/all.min.js"></script>
+</head>
+
+<body onload="fInicio()">
+
+    <header>
+        <div class="logo">
+            <img src="assets/img/logo foro (1).png" alt="logo">
+        </div>
+        <div class="titulo">
+            <h1>FORO SPARTAN</h1>
+        </div>
+    </header>
+
+    <nav>
+        <div class="tema">
+            <h2>TEMAS <i class="fas fa-plus" onclick="fVerModal('#form_tema')"></i></h2>
+            <div id="div_nav"></div>
+        </div>
+    </nav>
+
+    <section>
+        <div class="Bienvenido">¡¡BIENVENIDO!!</div>
+        <div class="mensajes">
+            <h2>MENSAJES <i class="fas fa-plus" onclick="fVerModal('#form_mensajes')"></i></h2>
+            <div id="div_section"></div>
+        </div>
+    </section>
+
+    <footer>Desarrollado por Manuel Domínguez Cobollo</footer>
+
+    <div id="div_modal">
+        <div id="form_tema">
+            <form action="">
+                <div>
+                    <input type="hidden" id="tema_id">
+                    <input type="hidden" id="tema_accion">
+                </div>
+                <div>
+                    <label for="temas">Tema</label>
+                    <input type="text" id="temas">
+                </div>
+                <div id="form_error"></div>
+                <div class="botonera">
+                    <button type="button" onclick="fCerrarmodal()">Cancelar</button>
+                    <button type="button" onclick="fGrabarTema()">Grabar</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="form_mensajes">
+            <form action="">
+                <input type="hidden" id="mensajes_id">
+                <input type="hidden" id="mensajes_accion">
+                <div>
+                    <label for="mensajes">Mensajes</label>
+                    <input type="text" id="mensaje">
+                </div>
+                <div id="form_mensaje_error"></div>
+                <div class="botonera">
+                    <button type="button" onclick="fCerrarmodal()">Cancelar</button>
+                    <button type="button" onclick="fGrabarMensajes()">Grabar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
