@@ -13,14 +13,11 @@ if (isset($_REQUEST['peticion'])) {
             $datos = BBDD_CTRLR::Consultas($sql);
             echo json_encode($datos);
             break;
-        case "lista_mensajes":
-            // $sql = "SELECT mensajes.men_mensaje, mensajes.men_fecha_hora, mensajes.men_tema_id, mensajes.men_usu_id 
-            // FROM mensajes 
-            // INNER JOIN temas ON mensajes.men_tema_id = temas.tema_id 
-            // INNER JOIN usuarios ON mensajes.men_usu_id = usuarios.usu_id
-            // WHERE temas.tema_id = :tema_id";
-            $sql = "SELECT * FROM mensajes ORDER BY men_id";
-            $datos = BBDD_CTRLR::Consultas($sql);
+        case "lista_mensaje":
+            $temas = $_REQUEST['temas'];
+            $sql =  "SELECT * FROM mensajes WHERE men_tema_id = $temas";
+            $datos['sql'] = $sql;
+            $datos['datos'] = BBDD_CTRLR::Consultas($sql);
             echo json_encode($datos);
             break;
         case "login":
@@ -35,7 +32,15 @@ if (isset($_REQUEST['peticion'])) {
             $alias = $_REQUEST["alias"];
             $pasword = $_REQUEST["pasword"];
             $foto = $_REQUEST["foto"];
-            $sql = "INSERT INTO usuarios (usu_nombre, usu_alias, usu_password, usu_foto) VALUES (:nombre, :alias, :pasword, :foto)";
+            $sql = "INSERT INTO usuarios (usu_nombre, usu_alias, usu_password, usu_foto) VALUES ('nombre="+$nombre+"', 'alias="+$alias+"', 'pasword="+$password+"', 'foto="+$foto+"')";
+            $datos = BBDD_CTRLR::Consultas($sql);
+            echo json_encode($datos);
+            break;
+        case "enviarMensaje":
+            $mensaje = $_REQUEST["mensaje"];
+            $tema_id = $_REQUEST["tema_id"];
+            $usu_id = 1;
+            $sql = "INSERT INTO mensajes (men_mensaje, men_tema_id, men_usu_id, men_fecha_hora) VALUES ('$mensaje', $tema_id, $usu_id, NOW())";
             $datos = BBDD_CTRLR::Consultas($sql);
             echo json_encode($datos);
             break;

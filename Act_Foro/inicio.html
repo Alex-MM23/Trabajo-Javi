@@ -6,22 +6,46 @@
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='assets/main.css'>
+    <style></style>
 </head>
 <body onload="ftemas()">
     <div class="incio-body">
-        <header></header>
         <nav>
-            <div id="contet-temas">
+            <div>
+                <img src="" alt="Logo">
+            </div>
+            <form action="" class="busqueda-form">
+                <label for="" class="etiqueta-busqueda">Buscar Mensaje</label>
+                <input type="text" class="input-busqueda">
+                <button type="submit" class="btn-busqueda">Buscar</button>
+            </form>
+            <div class="flex">
+                <a href="" class="tema-item tema-text">Iniciar Sesión</a>
+                <a href="" class="tema-icon"><img src="img/cart-shopping-solid.svg"></a>
+                <a href="" class="tema-item carrito-text">Cerrar Sesión</a>
+                <a href="" class="carrito-icon"><img src="img/user-slash-solid.svg"></a>
             </div>
         </nav>
         <section>
-            <div id="contenido" class="foro">
-                
-            </div>
+            
         </section>
-        <footer></footer>
+        <div class="container" id="container">
+            <div class="chat-box" id="chatBox">
+              <!-- Ejemplo de mensaje -->
+              <div class="message">
+                <span class="user">Usuario</span>
+                <span class="timestamp">12:30 PM</span>
+                <p>Este es un mensaje de ejemplo.</p>
+              </div>
+              <!-- Fin del ejemplo -->
+            </div>
+        
+            <div class="input-box">
+              <input type="text" id="messageInput" placeholder="Escribe tu mensaje...">
+              <button onclick="sendMessage()">Enviar</button>
+            </div>
+          </div>
     </div>
-
     <script type="text/javascript" src='main.js'></script>
 </body>
 </html>

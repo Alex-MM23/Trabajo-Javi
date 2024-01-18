@@ -12,6 +12,8 @@ function login() {
             alert("Contraseña o Usuario incorrecto!")
         }else{
             window.location.href = 'inicio.html';
+            // localStorage.setItem('usu_id', data.usu_id)
+            // console.log(localStorage.getItem('usu_id'));
         }
     })
     .catch(error => {
@@ -32,7 +34,7 @@ function registro() {
         console.log(data)
             window.location.href = 'index.html';
     })
-    .catch(error => {
+    .catch((error) => {
         console.error('Error en la solicitud fetch:', error);
     });
 }
@@ -43,12 +45,12 @@ function ftemas() {
     .then((response) => response.json())
     .then((data) => {
         console.log(data);
-        let html = "<ul>";
+        let html = "<ul class='temas-lista'>";
         data.forEach(item => {
-            html += "<li onclick='CargarLibros(" + item.tema_id + ")'>" + item.tema_tema + "</li>";
+            html += `<li class='tema-item' onclick="CargarMensaje(${item.tema_id})">${item.tema_tema}</li>`;
         });
         html += "</ul>";
-        document.getElementById("contet-temas").innerHTML = html;
+        document.querySelector("section").innerHTML = html;
     })
     .catch((error) => {
         console.error('Error en la solicitud fetch:', error);
@@ -57,26 +59,37 @@ function ftemas() {
     CargarMensaje();    
 }
 
-function CargarMensaje() {
-    const URL = 'php/servidor.php?peticion=lista_mensajes';
+function CargarMensaje(tema_id) {
+    const URL = `php/servidor.php?peticion=lista_mensaje&temas=${tema_id}`;
     fetch(URL)
     .then((response) => response.json())
     .then((data) => {
         console.log(data);
-        let html = "<div class='mensaje'>";
-        data.forEach(item => {
-            html += "<div class='informacion-usuario'>";
-            html += "   <span class='nombre-usuario'>Nombre del Usuario </span>";
-            html += "   <span class='fecha-publicacion'>" + item.men_fecha_hora + " </span>";
-            html += "</div>";
-            html += "<div class='contenido-mensaje'>";
-            html += "   <span>" + item.men_mensaje + "</span>";
+        let html = "<div class='chat-box' id='chatBox'>";
+        data.datos.forEach(item => {
+            html += "<div class='message'>";
+            html += "   <span class='user'>Nombre del Usuario </span>";
+            html += "   <span class='timestamp'>" + item.men_fecha_hora + " </span>";
+            html += "   <p>" + item.men_mensaje + "</p>";
             html += "</div>";
         });
+        html += "<div class='input-box'>";
+        html += "<input type='text' id='messageInput' placeholder='Escribe tu mensaje...'>";
+        html += `<button onclick='EnviarMensaje(${tema_id})'>Enviar</button>`;
+        html += "   </div>";
         html += "</div>";
-        document.getElementById("contenido").innerHTML = html;
+        document.getElementById("container").innerHTML = html;
     })
-    .catch((error) => {
-        console.error('Error en la solicitud fetch:', error);
-    });
+}
+
+function EnviarMensaje(tema_id){
+    var mensaje = document.getElementById("messageInput").value ;
+
+    const URL = `php/servidor.php?peticion=enviarMensaje&mensaje=${mensaje}&temas=${tema_id}`;
+    fetch(URL)
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+        alert("Mensaje Enviado");
+    })
 }
