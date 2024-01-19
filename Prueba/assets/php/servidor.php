@@ -31,9 +31,11 @@ if (isset($_REQUEST['peticion'])) {
             echo json_encode($datos);
             break;
         case "registro":
+            $nombre = $_REQUEST["nombre"];
             $alias = $_REQUEST["alias"];
-            $password = $_REQUEST["password"];
-            $sql = "INSERT INTO usuarios (usu_alias, usu_password) VALUES (:alias, :password)";
+            $pasword = md5($_REQUEST["password"]);
+            $foto = $_REQUEST["foto"];
+            $sql = "INSERT INTO usuarios VALUES (null, '$nombre', '$alias', '$password', '$foto', 0)";
             $datos = BBDD_CTRLR::Consultas($sql);
             echo json_encode($datos);
             break;
@@ -41,12 +43,10 @@ if (isset($_REQUEST['peticion'])) {
             $mensaje = $_REQUEST["mensaje"];
             $tema_id = $_REQUEST["tema_id"];
             $usu_id = 1;
-            $sql = "INSERT INTO mensajes (men_mensaje, men_tema_id, men_usu_id, men_fecha_hora) VALUES ('$mensaje', $tema_id, $usu_id, NOW())";
+            $sql = "INSERT INTO mensajes VALUES (null,'$mensaje', $tema_id, $usu_id, NOW())";
             $datos = BBDD_CTRLR::Consultas($sql);
             echo json_encode($datos);
-            break; 
-        
-        
+            break;    
     }
 }
 ?>

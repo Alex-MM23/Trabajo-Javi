@@ -19,51 +19,24 @@ function login() {
     });
 }
 
-/*function registro() {
-    var nombre = document.getElementById("nombre").value;
-    var alias = document.getElementById("alias").value;
-    var pasword = document.getElementById("password").value;
-    var foto = document.getElementById("foto").value;
+function registro() {
+    window.location.href = 'register.html';
+    var nombre = document.getElementById("registro_nombre").value;
+    var alias = document.getElementById("registro_alias").value;
+    var pasword = document.getElementById("registro_password").value;
+    var foto = document.getElementById("registro_foto").value;
 
     const URL = `assets/php/servidor.php?peticion=registro&nombre=${nombre}&alias=${alias}&pasword=${pasword}&foto=${foto}` ;
     fetch(URL)
     .then((response) => response.json())
     .then((data) => {
-        console.log(data)
-        if (data.length == 0){
-            window.location.href = 'register.html';
-            
-        }else{
+        if (data.length == 0){ 
+            alert("No se puedo registrar el usuario");
+        }else {
+            alert("Mensaje Enviado");
             window.location.href = 'index.html';
-             
         }
     })
-    .catch((error) => {
-        console.error('Error en la solicitud fetch:', error);
-    });
-}*/
-
-function registro(){
-    var username = document.getElementById("alias").value;
-    var password = document.getElementById("password").value;
-    /*var email = document.getElementById("email").value;*/
-    
-    const URL = `assets/php/servidor.php?peticion=login&alias=${username}&password=${password}`;
-    fetch(URL)
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data)
-        if (data.length == 0){
-            window.location.href = 'register.html';
-            
-        }else{
-            window.location.href = 'index.html';
-             
-        }
-    })
-    .catch(error => {
-        console.error('Error en la solicitud fetch:', error);
-    });
 }
 
 function fInicio() {
@@ -86,8 +59,6 @@ function fCargarTemas() {
             html += "</ul>"
             document.querySelector("nav").innerHTML = html;
         });
-
-    // fCargarMensajes();
 }
 
 function fCargarMensajes(tema_id) {
@@ -127,47 +98,25 @@ function fBorrarM(){
 function AgregarTema(){
     window.location.href = 'agregarT.html';
 
-    var tema = document.getElementById("temaInput").value ;
-
-    const URL = `assets/php/servidor.php?peticion=AgregarTema&tema=${tema_tema}&tema=${tema_id}`;
-    fetch(URL)
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data)
-        if (data.length == 0){
-            
-            alert("¡Tema añadido!")
-        }else{
-            window.location.href = 'pantalla2.html';
-        }
-
-    })
-    .catch(error => {
-        console.error('Error en la solicitud fetch:', error);
-    });
 }
 
-function AgregarMensaje(){
+function AgregarMensaje(tema_id){
     window.location.href = 'agregarM.html';
-   
-    var mensaje = document.getElementById("messageInput").value ;
+    var mensaje = document.getElementById("MensajeInput").value ;
 
-    const URL = `assets/php/servidor.php?peticion=AgregarMensaje&mensaje=${mensaje}&temas=${tema_id}`;
+    const URL = `assets/php/servidor.php?peticion=AgregarMensaje&mensaje=${mensaje}&tema_id=${tema_id}`;
     fetch(URL)
     .then((response) => response.json())
     .then((data) => {
-        console.log(data)
+        console.log(data);
         if (data.length == 0){
-            
-            alert("¡Mensaje añadido!")
-        }else{
+      
+            alert("Mensaje no se ha podido enviar");
+        }else {
+            alert("Mensaje Enviado");
             window.location.href = 'pantalla2.html';
         }
-
     })
-    .catch(error => {
-        console.error('Error en la solicitud fetch:', error);
-    });
 }
 
 function volver(){
