@@ -438,6 +438,12 @@ section {
   cursor: pointer;
 }
 
+.svg-icon {
+  width: 50px;
+  height: 50px;
+  color: #000;
+}
+
 @media only screen and (max-width: 600px) {
   .container {
     padding: 10px;
