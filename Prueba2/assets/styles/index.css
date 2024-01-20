@@ -88,16 +88,16 @@ header {
 
 .user{
     height: 70px;
-    margin-left: 10px;
+    margin-left: 1%;
     margin-top: 1%;
     
 }
 
-#cerrar{
-    width: 80px;
+#cerrar{  
     height: 45px;
+    width: 8%;
     margin-top: 30px;
-    margin-left: -22%;
+    margin-left: 16%;
     cursor: pointer;
     background-color: #007bff;
     color: white;
@@ -109,6 +109,39 @@ header {
     background-color: #5dade2;
     box-shadow: 0 0 20px rgba(52, 152, 219, 0.8);
 }
+
+#temaInput{
+    display: flex;
+    height: 13%;
+    margin-left: -50%;
+    margin-top: 23%;
+}
+
+.input-box {
+    display: flex;
+    width: 10%;
+    margin-left: -1%;
+    border-top: 1px solid #ccc;
+}
+  
+.input-box input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+  
+.input-box button {
+    margin-left: 10%;
+    height: 13%;
+    width: 70%;
+    margin-top: 33px;
+    background-color: #007bff; 
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 
 nav{
     grid-area: zheader; 
@@ -133,40 +166,12 @@ nav li:hover{
     color: rgb(255, 255, 255);
 }
 
-
-#temaInput{
-    display: flex;
-    height: 13%;
-    margin-left: -50%;
-    margin-top: 5%;
+.papelera{
+    color: #0b0b0b;
+    height: 30px;
+    width: 30px;
 }
 
-.input-box {
-    display: flex;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 40px;
-    width: 40%;
-    margin-left: 10%;
-    border-top: 1px solid #ccc;
-}
-  
-.input-box input {
-    flex: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    outline: none;
-}
-  
-.input-box button {
-    padding: 8px 15px;
-    background-color: #007bff; 
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
 section {
     grid-area: zsection;
     color: white;
@@ -179,18 +184,7 @@ section {
     background-color: #007bff; 
     box-shadow: 10px 10px 20px rgba(0, 13, 251, 0.5);
 }
-.message {
-    margin-bottom: 15px;
-    padding: 10px;
-    border-radius: 8px;
-    background-color: #e6f7ff; /* Color de fondo del mensaje */
-}
 
-.papelera{
-    color: #0b0b0b;
-    height: 30px;
-    width: 30px;
-}
 
 footer {
     grid-area: zfooter;
