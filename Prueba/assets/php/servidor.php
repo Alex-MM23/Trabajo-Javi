@@ -39,15 +39,15 @@ if (isset($_REQUEST['peticion'])) {
             $datos = BBDD_CTRLR::Consultas($sql);
             echo json_encode($datos);
             break;
-        case "AgregarMensaje":
+        case "enviarMensaje":
             $mensaje = $_REQUEST["mensaje"];
             $tema_id = $_REQUEST["tema_id"];
             $usu_id = 1;
             $sql = "INSERT INTO mensajes VALUES (null,'$mensaje', $tema_id, $usu_id, NOW())";
             $datos = BBDD_CTRLR::Consultas($sql);
             echo json_encode($datos);
-            break;   
-        case "crearTema":
+            break;
+        case "AgregarTema":
             $tema = $_REQUEST["tema"];
             $sql = "INSERT INTO temas VALUES (null,'$tema')";
             $datos = BBDD_CTRLR::Consultas($sql);
@@ -65,6 +65,6 @@ if (isset($_REQUEST['peticion'])) {
             $datos = BBDD_CTRLR::Consultas($sql);
             echo json_encode($datos);
             break;
-        } 
-}
+        }
+    }         
 ?>

@@ -72,7 +72,7 @@ function fCargarMensajes(tema_id) {
             html += "";
             data.datos.forEach(item => {
                 html += `<ul>`; 
-                html += "<div>" + item.men_mensaje + "" + item.men_fecha_hora + "</div>";
+                html += "<div>" + item.men_mensaje + "" + item.men_fecha_hora + "</div>" ;
                 html += `</ul>`;
             });
             html += "<input type='text' id='messageInput' placeholder='Escribe tu mensaje...'>";
@@ -91,37 +91,40 @@ function cerrar(){
 function AgregarTema(){
     var tema = document.getElementById("temaInput").value ;
 
-    const URL = `assets/php/servidor.php?peticion=crearTema&tema=${tema}`;
+    const URL = `assets/php/servidor.php?peticion=AgregarTema&tema=${tema}`;
     fetch(URL)
     .then((response) => response.json())
     .then((data) => {
         console.log(data);
         if (data.length == 0){
-            alert("Tema no se ha podido crear");
+            alert("Tema no se a podido crear");
         }else {
-            alert("Tema Creado Con Éxito");
+            alert("Tema Creado");
             window.location.href = 'pantalla2.html';
         }
     })
+    .catch(() => {
+        window.location.href = 'pantalla2.html';
+    });
 }
 
-function AgregarMensaje(tema_id){
-    
-    var mensaje = document.getElementById("MensajeInput").value ;
 
-    const URL = `assets/php/servidor.php?peticion=AgregarMensaje&mensaje=${mensaje}&tema_id=${tema_id}`;
+function EnviarMensaje(tema_id){
+    var mensaje = document.getElementById("messageInput").value ;
+
+    const URL = `assets/php/servidor.php?peticion=enviarMensaje&mensaje=${mensaje}&tema_id=${tema_id}`;
     fetch(URL)
     .then((response) => response.json())
     .then((data) => {
         console.log(data);
         if (data.length == 0){
-            
-            alert("Mensaje no se ha podido enviar");
+            alert("Mensaje no se a podido enviar");
         }else {
             alert("Mensaje Enviado");
-            window.location.href = 'pantalla2.html';
+            window.location.href = 'inicio.html';
         }
     })
+
 }
 
 function volver(){
@@ -130,37 +133,40 @@ function volver(){
     })
 }
 
-// function borrarTema(tema_id){
+function borrarTema(tema_id){
 
-//     const URL = `php/servidor.php?peticion=borrarTema&tema_id=${tema_id}`;
-//     fetch(URL)
-//     .then((response) => response.json())
-//     .then((data) => {
-//         console.log(data);
-//         if (data.length == 0){
-//             alert("Tema no se a podido borrar");
-//         }else {
-//             alert("Tema Borrado");
-//             window.location.href = 'inicio_admin.html';
-//         }
-//     })
-// }
+    const URL = `assets/php/servidor.php?peticion=borrarTema&tema_id=${tema_id}`;
+    fetch(URL)
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+        if (data.length == 0){
+            alert("Tema no se a podido borrar");
+        }else {
+            alert("Tema Borrado");
+            window.location.href = 'pantalla2.html';
+        }
+    })
+    .catch(() => {
+        window.location.href = 'pantalla2.html';
+    });
+}
 
-// function borrarMensaej(men_id){
+function borrarMensaje(men_id){
 
-//     const URL = `php/servidor.php?peticion=borrarMensaje&men_id=${men_id}`;
-//     fetch(URL)
-//     .then((response) => response.json())
-//     .then((data) => {
-//         console.log(data);
-//         if (data.length == 0){
-//             alert("Mensaje no se a podido borrar");
-//         }else {
-//             alert("Mensaje Borrado");
-//             window.location.href = 'inicio_admin.html';
-//         }
-//     })
-// }
+    const URL = `assets/php/servidor.php?peticion=borrarMensaje&men_id=${men_id}`;
+    fetch(URL)
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+        if (data.length == 0){
+            alert("Mensaje no se a podido borrar");
+        }else {
+            alert("Mensaje Borrado");
+            window.location.href = 'inicio_admin.html';
+        }
+    })
+}
 
 /*
 document.addEventListener("DOMContentLoaded", function () {
