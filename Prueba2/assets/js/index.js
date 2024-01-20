@@ -75,7 +75,7 @@ function fCargarMensajes(tema_id) {
                 html += "<div>" + item.men_mensaje + "" + item.men_fecha_hora + "</div>" ;
                 html += `</ul>`;
             });
-            html += "<input type='text' id='messageInput' placeholder='Escribe tu mensaje...'>";
+            html += "<input type='text' id='mensajeInput' placeholder='Escribe tu mensaje...'>";
             html += `<button onclick='EnviarMensaje(${tema_id})'>Enviar</button>`;
             html += "";
             document.querySelector("section").innerHTML = html;
@@ -110,7 +110,7 @@ function AgregarTema(){
 
 
 function EnviarMensaje(tema_id){
-    var mensaje = document.getElementById("messageInput").value ;
+    var mensaje = document.getElementById("mensajeInput").value ;
 
     const URL = `assets/php/servidor.php?peticion=enviarMensaje&mensaje=${mensaje}&tema_id=${tema_id}`;
     fetch(URL)
