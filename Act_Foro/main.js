@@ -110,7 +110,10 @@ function ftemasAdmin() {
         console.log(data);
         let html = "<ul class='temas-lista'>";
         data.forEach(item => {
-            html += `<div><li class='tema-item' onclick="CargarMensaje(${item.tema_id})">${item.tema_tema}</li><span onclick="eliminarTema(${item.tema_id})"><img src="assets/img/minus-solid.svg" alt="Logo" class="svg-icon"></span></div>`;
+            html += `<div>`;
+            html += `<li class='tema-item' onclick="CargarMensaje(${item.tema_id})">${item.tema_tema}</li>`;
+            html += `<span class='pointer' onclick="borrarTema(${item.tema_id})"><img src="assets/img/minus-solid.svg" alt="Logo" class="svg-icon"></span>`;
+            html += `</div>`;
         });
         html += "</ul>";
         document.querySelector("section").innerHTML = html;
@@ -145,8 +148,8 @@ function CargarMensajeAdmin(tema_id) {
     })
 }
 
-function agregarTema(tema_id){
-    var mensaje = document.getElementById("nuevo-tema").value ;
+function agregarTema(){
+    var tema = document.getElementById("inputTema").value ;
 
     const URL = `php/servidor.php?peticion=crearTema&tema=${tema}`;
     fetch(URL)
@@ -160,6 +163,9 @@ function agregarTema(tema_id){
             window.location.href = 'inicio_admin.html';
         }
     })
+    .catch(() => {
+        window.location.href = 'inicio_admin.html';
+    });
 }
 
 function borrarTema(tema_id){
@@ -176,6 +182,9 @@ function borrarTema(tema_id){
             window.location.href = 'inicio_admin.html';
         }
     })
+    .catch(() => {
+        window.location.href = 'inicio_admin.html';
+    });
 }
 
 function borrarMensaej(men_id){
@@ -192,4 +201,7 @@ function borrarMensaej(men_id){
             window.location.href = 'inicio_admin.html';
         }
     })
+    .catch(() => {
+        window.location.href = 'inicio_admin.html';
+    });
 }
