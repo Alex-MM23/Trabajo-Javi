@@ -46,7 +46,25 @@ if (isset($_REQUEST['peticion'])) {
             $sql = "INSERT INTO mensajes VALUES (null,'$mensaje', $tema_id, $usu_id, NOW())";
             $datos = BBDD_CTRLR::Consultas($sql);
             echo json_encode($datos);
-            break;    
-    }
+            break;   
+        case "crearTema":
+            $tema = $_REQUEST["tema"];
+            $sql = "INSERT INTO temas VALUES (null,'$tema')";
+            $datos = BBDD_CTRLR::Consultas($sql);
+            echo json_encode($datos);
+            break;
+        case "borrarTema":
+            $tema_id = $_REQUEST["tema_id"];
+            $sql = "DELETE FROM temas WHERE tema_id ='$tema_id' ";
+            $datos = BBDD_CTRLR::Consultas($sql);
+            echo json_encode($datos);
+            break;
+        case "borrarMensaje":
+            $men_id = $_REQUEST["men_id"];
+            $sql = "DELETE FROM mensajes WHERE men_id ='$men_id' ";
+            $datos = BBDD_CTRLR::Consultas($sql);
+            echo json_encode($datos);
+            break;
+        } 
 }
 ?>

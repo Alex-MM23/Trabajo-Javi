@@ -52,9 +52,9 @@ function fCargarTemas() {
 
             let html = "";
             data.forEach(item => {
-                html += `<li onclick="fCargarMensajes(${item.tema_id})">`;
+                html += `<li  onclick="fCargarMensajes(${item.tema_id})" <span><img class="papelera" src="assets/img/basura.png" alt="" onclick="eliminarTema(${item.tema_id})"></span> `;
                 html += item.tema_tema;
-                html += '</li>';
+                html += '</li>';   
             });
             html += "</ul>"
             document.querySelector("nav").innerHTML = html;
@@ -67,15 +67,16 @@ function fCargarMensajes(tema_id) {
         .then((response) => response.json())
         .then((data) => {
             console.log(data);
-
             let html = "";
             html += "";
             html += "";
             data.datos.forEach(item => {
-                html += `<ul>`;
+                html += `<ul>`; 
                 html += "<div>" + item.men_mensaje + "" + item.men_fecha_hora + "</div>";
                 html += `</ul>`;
             });
+            html += "<input type='text' id='messageInput' placeholder='Escribe tu mensaje...'>";
+            html += `<button onclick='EnviarMensaje(${tema_id})'>Enviar</button>`;
             html += "";
             document.querySelector("section").innerHTML = html;
         })
@@ -87,21 +88,25 @@ function cerrar(){
     })
 }
 
-function fBorrarT(){
-    window.location.href = 'borrarT.html';
-}
-
-function fBorrarM(){
-    window.location.href = 'borrarM.html';
-}
-
 function AgregarTema(){
-    window.location.href = 'agregarT.html';
+    var tema = document.getElementById("temaInput").value ;
 
+    const URL = `assets/php/servidor.php?peticion=crearTema&tema=${tema}`;
+    fetch(URL)
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+        if (data.length == 0){
+            alert("Tema no se ha podido crear");
+        }else {
+            alert("Tema Creado Con Éxito");
+            window.location.href = 'pantalla2.html';
+        }
+    })
 }
 
 function AgregarMensaje(tema_id){
-    window.location.href = 'agregarM.html';
+    
     var mensaje = document.getElementById("MensajeInput").value ;
 
     const URL = `assets/php/servidor.php?peticion=AgregarMensaje&mensaje=${mensaje}&tema_id=${tema_id}`;
@@ -110,7 +115,7 @@ function AgregarMensaje(tema_id){
     .then((data) => {
         console.log(data);
         if (data.length == 0){
-      
+            
             alert("Mensaje no se ha podido enviar");
         }else {
             alert("Mensaje Enviado");
@@ -124,6 +129,38 @@ function volver(){
         window.location.href = 'pantalla2.html';
     })
 }
+
+// function borrarTema(tema_id){
+
+//     const URL = `php/servidor.php?peticion=borrarTema&tema_id=${tema_id}`;
+//     fetch(URL)
+//     .then((response) => response.json())
+//     .then((data) => {
+//         console.log(data);
+//         if (data.length == 0){
+//             alert("Tema no se a podido borrar");
+//         }else {
+//             alert("Tema Borrado");
+//             window.location.href = 'inicio_admin.html';
+//         }
+//     })
+// }
+
+// function borrarMensaej(men_id){
+
+//     const URL = `php/servidor.php?peticion=borrarMensaje&men_id=${men_id}`;
+//     fetch(URL)
+//     .then((response) => response.json())
+//     .then((data) => {
+//         console.log(data);
+//         if (data.length == 0){
+//             alert("Mensaje no se a podido borrar");
+//         }else {
+//             alert("Mensaje Borrado");
+//             window.location.href = 'inicio_admin.html';
+//         }
+//     })
+// }
 
 /*
 document.addEventListener("DOMContentLoaded", function () {

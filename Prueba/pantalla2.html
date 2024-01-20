@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FORO TECH</title>
     <link rel="stylesheet" href="assets/styles/index.css">
-
+    
 </head>
 
 <body onload="fInicio()">
@@ -15,17 +15,23 @@
             <div class="logo">
                 <img src="assets/img/LOGO.png" alt="logo">
             </div>
-
+            <div class="input-box">
+                <div id="temaInput">
+                    <input type="text"  placeholder="Agregar un tema nuevo...">
+                    <button onclick="AgregarTema()">Enviar</button>
+                </div>
+            </div>
+            <button id="cerrar" onclick="cerrar()">Cerrar Sesión</button>
+            <div class="user">
+                <img class="user" src="assets/img/icono1.png" alt="user">
+            </div>
             <!--<div>
                 <input type="text" id="entradaBusqueda" placeholder="Buscar mensajes...">
                 <button id="btnBuscar">Buscar</button>
                 <ul id="listaTemas"></ul>
             </div>-->
 
-            <button id="cerrar" onclick="cerrar()">Cerrar Sesión</button>
-            <div class="user">
-                <img class="user" src="assets/img/icono1.png" alt="user">
-            </div>
+            
 
         </header>
         <nav>
@@ -36,25 +42,7 @@
         <section>
 
         </section>
-        <div class="input-box">
-            <div>
-                <input type="text" id="temaInput" placeholder="Agregar un tema nuevo...">
-                <button onclick="AgregarTema()">Enviar</button>
 
-                <input type="text" id="BorrarInput" placeholder="Borrar un tema...">
-                <button onclick="fBorrarT()">Borrar</button>
-
-            </div>
-            <div>
-                <input type="text" id="MensajeInput" placeholder="Agregar un mensaje...">
-                <button onclick="AgregarMensaje()">Agregar</button>
-
-                <input type="text" id="BorrarInput" placeholder="Borrar tu mensaje...">
-                <button onclick="fBorrarM()">Borrar</button>
-
-            </div>
-
-        </div>
         <footer>
             <p>&copy; 2024 ForoTech.SL</p>
         </footer>
