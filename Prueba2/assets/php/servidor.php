@@ -33,9 +33,9 @@ if (isset($_REQUEST['peticion'])) {
         case "registro":
             $nombre = $_REQUEST["nombre"];
             $alias = $_REQUEST["alias"];
-            $pasword = md5($_REQUEST["password"]);
+            $password = $_REQUEST["password"];
             $foto = $_REQUEST["foto"];
-            $sql = "INSERT INTO usuarios VALUES (null, '$nombre', '$alias', '$password', '$foto', 0)";
+            $sql = "INSERT INTO usuarios VALUES (null, '$nombre', '$alias', md5('$password'), '$foto', 0)";
             $datos = BBDD_CTRLR::Consultas($sql);
             echo json_encode($datos);
             break;
