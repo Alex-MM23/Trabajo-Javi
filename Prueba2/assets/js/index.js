@@ -78,7 +78,7 @@ function fCargarMensajes(tema_id) {
             html += "";
             data.datos.forEach(item => {
                 html += `<ul>`; 
-                html += `<div>  `  + item.men_mensaje + `` + item.men_fecha_hora + ` <span><img class="papelera" src="assets/img/basura.png" alt="" onclick="borrarMensaje(${item.men_id})"></span> </div>` ;
+                html += `<div class="mensajes">  `  + item.men_mensaje + `<span class="fecha">` + item.men_fecha_hora + `</span> <span><img class="papelera" src="assets/img/basura.png" alt="" onclick="borrarMensaje(${item.men_id})"></span> </div>` ;
                 html += `</ul>`;
             });
             html += "<input type='text' id='mensajeInput' placeholder='Escribe tu mensaje...'>";
