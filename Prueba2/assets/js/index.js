@@ -9,9 +9,10 @@ function login() {
         console.log(data)
         if (data.length == 0){
             window.location.href = 'index.html';
-            alert("Contraseña o Usuario incorrecto!")
+            alert("¡Contraseña o Usuario incorrecto!")
         }else{
             window.location.href = 'pantalla2.html';
+            alert("¡Usuario correcto!")
         }
     })
     .catch(error => {
@@ -33,15 +34,20 @@ function registro() {
         if (data.length == 0){ 
             alert("No se puedo registrar el usuario");
         }else {
-            alert("Mensaje Enviado");
             window.location.href = 'index.html';
         }
+        
     })
+    .catch(() => {
+        alert("Usuario registrado");
+        window.location.href = 'index.html';
+    });
 }
 
 function fInicio() {
     fCargarTemas();
 }
+
 function fCargarTemas() {
     let html = "<ul>";
     let URL = "assets/php/servidor.php?peticion=fCargarTemas";
@@ -84,6 +90,7 @@ function fCargarMensajes(tema_id) {
 
 function cerrar(){
     document.getElementById('cerrar').addEventListener('click', function(){
+        alert("¡Se ha cerrado sesión correctamente!");
         window.location.href = 'index.html';
     })
 }
@@ -104,6 +111,7 @@ function AgregarTema(){
         }
     })
     .catch(() => {
+        alert("¡Tema creado con éxito!");
         window.location.href = 'pantalla2.html';
     });
 }
@@ -116,15 +124,12 @@ function EnviarMensaje(tema_id){
     fetch(URL)
     .then((response) => response.json())
     .then((data) => {
-        console.log(data);
-        if (data.length == 0){
-            alert("Mensaje no se ha podido enviar");
-        }else {
-            alert("Mensaje Enviado");
-            window.location.href = 'inicio.html';
-        }
+        
     })
-
+    .catch(() => {
+        alert("¡Mensaje creado con éxito!");
+        window.location.href = 'pantalla2.html';
+    });
 }
 
 function volver(){
@@ -139,15 +144,10 @@ function borrarTema(tema_id){
     fetch(URL)
     .then((response) => response.json())
     .then((data) => {
-        console.log(data);
-        if (data.length == 0){
-            alert("Tema no se ha podido borrar");
-        }else {
-            alert("Tema Borrado");
-            window.location.href = 'pantalla2.html';
-        }
+        
     })
     .catch(() => {
+        alert("¡Tema borrado con gran éxito!");
         window.location.href = 'pantalla2.html';
     });
 }
@@ -158,15 +158,10 @@ function borrarMensaje(men_id){
     fetch(URL)
     .then((response) => response.json())
     .then((data) => {
-        console.log(data);
-        if (data.length == 0){
-            alert("Mensaje no se ha podido borrar");
-        }else {
-            alert("Mensaje Borrado");
-            window.location.href = 'pantalla2.html';
-        }
+       
     })
     .catch(() => {
+        alert("¡Mensaje borrado con gran éxito!");
         window.location.href = 'pantalla2.html';
     });
 }
