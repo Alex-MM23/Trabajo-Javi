@@ -20,7 +20,20 @@ if (isset($_REQUEST['peticion'])) {
             break;
         case "lista_mensaje":
             $temas = $_REQUEST['temas'];
-            $sql =  "SELECT * FROM mensajes WHERE men_tema_id = $temas";
+            $sql =  "SELECT mensajes.men_id, mensajes.men_usu_id, mensajes.men_mensaje, men_fecha_hora, usuarios.usu_nombre AS usu_nombre
+            FROM mensajes
+            JOIN usuarios ON mensajes.men_usu_id = usuarios.usu_id
+            WHERE mensajes.men_tema_id = $temas;";
+            $datos['sql'] = $sql;
+            $datos['datos'] = BBDD_CTRLR::Consultas($sql);
+            echo json_encode($datos);
+            break;
+        case "lista_mensaje_admin":
+            $temas = $_REQUEST['temas'];
+            $sql =  "SELECT mensajes.men_id, mensajes.men_usu_id, mensajes.men_mensaje, men_fecha_hora, usuarios.usu_nombre AS usu_nombre
+            FROM mensajes
+            JOIN usuarios ON mensajes.men_usu_id = usuarios.usu_id
+            WHERE mensajes.men_tema_id = $temas;";
             $datos['sql'] = $sql;
             $datos['datos'] = BBDD_CTRLR::Consultas($sql);
             echo json_encode($datos);
@@ -35,16 +48,16 @@ if (isset($_REQUEST['peticion'])) {
         case "registro":
             $nombre = $_REQUEST["nombre"];
             $alias = $_REQUEST["alias"];
-            $pasword = md5($_REQUEST["password"]);
+            $password = $_REQUEST["password"];
             $foto = $_REQUEST["foto"];
-            $sql = "INSERT INTO usuarios VALUES (null, '$nombre', '$alias', '$password', '$foto', 0)";
+            $sql = "INSERT INTO usuarios VALUES (null, '$nombre', '$alias', md5('$password'), '$foto', 0)";
             $datos = BBDD_CTRLR::Consultas($sql);
             echo json_encode($datos);
             break;
         case "enviarMensaje":
             $mensaje = $_REQUEST["mensaje"];
             $tema_id = $_REQUEST["tema_id"];
-            $usu_id = 1;
+            $usu_id = $_REQUEST["usu_id"];
             $sql = "INSERT INTO mensajes VALUES (null,'$mensaje', $tema_id, $usu_id, NOW())";
             $datos = BBDD_CTRLR::Consultas($sql);
             echo json_encode($datos);

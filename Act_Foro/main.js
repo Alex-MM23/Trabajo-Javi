@@ -11,23 +11,33 @@ function login() {
             window.location.href = 'index.html';
             alert("Contraseña o Usuario incorrecto!")
         }else{
-            window.location.href = 'inicio.html';
-            // localStorage.setItem('usu_id', data.usu_id)
-            // console.log(localStorage.getItem('usu_id'));
+            if (data[0].usu_admin === '1') {
+                // Si usu_admin es 1, redirige a la página de administrador
+                window.location.href = 'inicio_admin.html';
+            } else {
+                // Si usu_admin es 0, redirige a la página de usuario normal
+                window.location.href = 'inicio.html';
+            }
+            var usu_id = data[0].usu_id;
+            console.log("Usu_id: " + usu_id);
+            localStorage.setItem('usu_id', usu_id);
         }
     })
     .catch(error => {
         console.error('Error en la solicitud fetch:', error);
+        var usu_id = data[0].usu_id;
+            console.log("Usu_id: " + usu_id);
+            localStorage.setItem('usu_id', usu_id);
     });
 }
 
 function registro() {
     var nombre = document.getElementById("registro_nombre").value;
     var alias = document.getElementById("registro_alias").value;
-    var pasword = document.getElementById("registro_password").value;
+    var password = document.getElementById("registro_password").value;
     var foto = document.getElementById("registro_foto").value;
 
-    const URL = `php/servidor.php?peticion=registro&nombre=${nombre}&alias=${alias}&pasword=${pasword}&foto=${foto}` ;
+    const URL = `php/servidor.php?peticion=registro&nombre=${nombre}&alias=${alias}&pasword=${password}&foto=${foto}` ;
     fetch(URL)
     .then((response) => response.json())
     .then((data) => {
@@ -38,6 +48,9 @@ function registro() {
             window.location.href = 'index.html';
         }
     })
+    .catch(() => {
+        window.location.href = 'index.html';
+    });
 }
 
 function ftemas() {
@@ -69,7 +82,7 @@ function CargarMensaje(tema_id) {
         let html = "<div class='chat-box' id='chatBox'>";
         data.datos.forEach(item => {
             html += "<div class='message'>";
-            html += "   <span class='user'>Nombre del Usuario </span>";
+            html += "   <span class='user'>" + item.usu_nombre + " </span>";
             html += "   <span class='timestamp'>" + item.men_fecha_hora + " </span>";
             html += "   <p>" + item.men_mensaje + "</p>";
             html += "</div>";
@@ -84,9 +97,10 @@ function CargarMensaje(tema_id) {
 }
 
 function EnviarMensaje(tema_id){
+    var usu_id = localStorage.getItem('usu_id');
     var mensaje = document.getElementById("messageInput").value ;
 
-    const URL = `php/servidor.php?peticion=enviarMensaje&mensaje=${mensaje}&tema_id=${tema_id}`;
+    const URL = `php/servidor.php?peticion=enviarMensaje&mensaje=${mensaje}&usu_id=${usu_id}&tema_id=${tema_id}`;
     fetch(URL)
     .then((response) => response.json())
     .then((data) => {
@@ -98,6 +112,9 @@ function EnviarMensaje(tema_id){
             window.location.href = 'inicio.html';
         }
     })
+    .catch(() => {
+        window.location.href = 'inicio.html';
+    });
 }
 
 // JS para apartado usuario Admin
@@ -126,17 +143,18 @@ function ftemasAdmin() {
 }
 
 function CargarMensajeAdmin(tema_id) {
-    const URL = `php/servidor.php?peticion=lista_mensaje&temas=${tema_id}`;
+    const URL = `php/servidor.php?peticion=lista_mensaje_admin&temas=${tema_id}`;
     fetch(URL)
     .then((response) => response.json())
-    .then((data) => {
+    .then((data) => { 
         console.log(data);
         let html = "<div class='chat-box' id='chatBox'>";
         data.datos.forEach(item => {
             html += "<div class='message'>";
-            html += "   <span class='user'>Nombre del Usuario </span>";
+            html += "   <span class='user'>" + item.usu_nombre + " </span>";
             html += "   <span class='timestamp'>" + item.men_fecha_hora + " </span>";
             html += "   <p>" + item.men_mensaje + "</p>";
+            html += "   <button onclick='EnviarMensaje(" + item.men_id + ")'>Eliminar</button>";
             html += "</div>";
         });
         html += "<div class='input-box'>";
