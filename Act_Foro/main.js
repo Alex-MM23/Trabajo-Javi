@@ -85,6 +85,7 @@ function CargarMensaje(tema_id) {
             html += "   <span class='user'>" + item.usu_nombre + " </span>";
             html += "   <span class='timestamp'>" + item.men_fecha_hora + " </span>";
             html += "   <p>" + item.men_mensaje + "</p>";
+            html += "   <button onclick='borrarMensaje(" + item.men_id + ")'>Eliminar</button>";
             html += "</div>";
         });
         html += "<div class='input-box'>";
@@ -109,11 +110,11 @@ function EnviarMensaje(tema_id){
             alert("Mensaje no se a podido enviar");
         }else {
             alert("Mensaje Enviado");
-            window.location.href = 'inicio.html';
+            window.location.reload();
         }
     })
     .catch(() => {
-        window.location.href = 'inicio.html';
+        window.location.reload();
     });
 }
 
@@ -154,7 +155,7 @@ function CargarMensajeAdmin(tema_id) {
             html += "   <span class='user'>" + item.usu_nombre + " </span>";
             html += "   <span class='timestamp'>" + item.men_fecha_hora + " </span>";
             html += "   <p>" + item.men_mensaje + "</p>";
-            html += "   <button onclick='EnviarMensaje(" + item.men_id + ")'>Eliminar</button>";
+            html += "   <button onclick='borrarMensaje(" + item.men_id + ")'>Eliminar</button>";
             html += "</div>";
         });
         html += "<div class='input-box'>";
@@ -205,7 +206,7 @@ function borrarTema(tema_id){
     });
 }
 
-function borrarMensaej(men_id){
+function borrarMensaje(men_id){
 
     const URL = `php/servidor.php?peticion=borrarMensaje&men_id=${men_id}`;
     fetch(URL)
