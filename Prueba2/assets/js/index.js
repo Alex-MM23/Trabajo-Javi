@@ -24,10 +24,10 @@ function registro() {
     window.location.href = 'register.html';
     var nombre = document.getElementById("registro_nombre").value;
     var alias = document.getElementById("registro_alias").value;
-    var pasword = document.getElementById("registro_password").value;
+    var password = document.getElementById("registro_password").value;
     var foto = document.getElementById("registro_foto").value;
 
-    const URL = `assets/php/servidor.php?peticion=registro&nombre=${nombre}&alias=${alias}&pasword=${pasword}&foto=${foto}` ;
+    const URL = `assets/php/servidor.php?peticion=registro&nombre=${nombre}&alias=${alias}&password=${password}&foto=${foto}` ;
     fetch(URL)
     .then((response) => response.json())
     .then((data) => {
