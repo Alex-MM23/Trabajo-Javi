@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-01-2024 a las 23:57:30
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Tiempo de generación: 23-01-2024 a las 14:20:54
+-- Versión del servidor: 10.4.11-MariaDB
+-- Versión de PHP: 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -29,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `mensajes` (
   `men_id` int(11) NOT NULL,
-  `men_mensaje` mediumtext NOT NULL,
+  `men_mensaje` mediumtext COLLATE utf8_spanish_ci NOT NULL,
   `men_tema_id` int(11) NOT NULL,
   `men_usu_id` int(11) NOT NULL,
   `men_fecha_hora` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -40,19 +41,13 @@ CREATE TABLE `mensajes` (
 --
 
 INSERT INTO `mensajes` (`men_id`, `men_mensaje`, `men_tema_id`, `men_usu_id`, `men_fecha_hora`) VALUES
-(1, 'Adornar la web', 2, 1, '2024-01-09 17:59:27'),
-(2, '¿Cómo puedo hacer esto? AYUDA', 2, 2, '2024-01-11 21:29:18'),
-(3, 'Duda Css', 2, 1, '2024-01-11 21:30:10'),
-(4, 'Ayuda con HTML', 1, 8, '2024-01-11 21:22:45'),
-(5, 'Dudas sobre etiquetas HTML', 1, 3, '2024-01-11 21:23:40'),
-(6, 'Curso de Html básico', 1, 7, '2024-01-11 21:24:14'),
-(9, 'Problema con java al abrir Minecraft', 5, 1, '2024-01-11 21:28:33'),
-(10, '¿Esto es un error de Java?', 5, 3, '2024-01-11 21:27:55'),
-(11, 'Javascript de los cohones, AYUDA!!', 3, 8, '2024-01-11 21:31:43'),
-(12, 'Proyecto videojuego: HTML5 + JavaScript', 3, 2, '2024-01-11 21:32:05'),
-(13, 'Necesito a un programador PHP...', 4, 1, '2024-01-11 21:32:52'),
-(14, 'Hola, estoy anclado en un programita php', 4, 3, '2024-01-11 21:34:44'),
-(15, 'Patrocinador de Red Bull en F1', 7, 8, '2024-01-11 21:35:56');
+(6, '    Ayuda por favor', 1, 1, '2024-01-23 09:04:32'),
+(7, '    ¿Ahora que hago?', 2, 1, '2024-01-23 09:07:02'),
+(28, '    ¿Qué hay mal?', 2, 13, '2024-01-23 13:14:29'),
+(29, '    Ayuda!!!', 4, 13, '2024-01-23 13:14:51'),
+(30, '    ¿Qué hay mal aquí?', 4, 14, '2024-01-23 13:15:37'),
+(31, '    ¿Cómo empiezo?', 1, 14, '2024-01-23 13:16:02'),
+(32, '    Clases a 20€/h', 2, 14, '2024-01-23 13:16:32');
 
 -- --------------------------------------------------------
 
@@ -62,7 +57,7 @@ INSERT INTO `mensajes` (`men_id`, `men_mensaje`, `men_tema_id`, `men_usu_id`, `m
 
 CREATE TABLE `temas` (
   `tema_id` int(11) NOT NULL,
-  `tema_tema` varchar(50) NOT NULL
+  `tema_tema` varchar(50) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -72,10 +67,7 @@ CREATE TABLE `temas` (
 INSERT INTO `temas` (`tema_id`, `tema_tema`) VALUES
 (1, 'HTML'),
 (2, 'CSS'),
-(3, 'Javascript'),
-(4, 'PHP'),
-(5, 'Java'),
-(7, 'Oracle');
+(4, 'PHP');
 
 -- --------------------------------------------------------
 
@@ -85,10 +77,10 @@ INSERT INTO `temas` (`tema_id`, `tema_tema`) VALUES
 
 CREATE TABLE `usuarios` (
   `usu_id` int(11) NOT NULL,
-  `usu_nombre` varchar(50) NOT NULL,
-  `usu_alias` varchar(50) NOT NULL,
-  `usu_password` varchar(256) NOT NULL,
-  `usu_foto` varchar(50) NOT NULL,
+  `usu_nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `usu_alias` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `usu_password` varchar(256) COLLATE utf8_spanish_ci NOT NULL,
+  `usu_foto` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `usu_admin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -99,9 +91,8 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`usu_id`, `usu_nombre`, `usu_alias`, `usu_password`, `usu_foto`, `usu_admin`) VALUES
 (1, 'administrador', 'administrador', '91f5167c34c400758115c2a6826ec2e3', 'u01.gif', 1),
 (2, 'usuario', 'usuario', 'f8032d5cae3de20fcec887f395ec9a6a', 'u02.gif', 0),
-(3, 'Pepe', 'pepe', '926e27eecdbc7a18858b3798ba99bddd', 'anonimo.png', 0),
-(7, 'Pepe2', 'pepe2', '926e27eecdbc7a18858b3798ba99bddd', 'anonimo.png', 0),
-(8, 'Juana', 'juana', 'a94652aa97c7211ba8954dd15a3cf838', 'u03.gif', 0);
+(13, 'Alex', 'Alex', 'a08372b70196c21a9229cf04db6b7ceb', 'u01.gif', 0),
+(14, 'Manuel', 'Manuel', '65314e903461a614229ea5a2099d758e', 'u02.gif', 0);
 
 --
 -- Índices para tablas volcadas
@@ -136,19 +127,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `mensajes`
 --
 ALTER TABLE `mensajes`
-  MODIFY `men_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `men_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `temas`
 --
 ALTER TABLE `temas`
-  MODIFY `tema_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `tema_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `usu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `usu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Restricciones para tablas volcadas
