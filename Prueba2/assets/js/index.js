@@ -94,7 +94,7 @@ function fCargarMensajes(tema_id) {
             html += "";
             data.datos.forEach(item => {
                 html += `<ul>`; 
-                html += `<div class="mensajes">  `+ item.usu_nombre  + item.men_mensaje + `<span class="fecha">` + item.men_fecha_hora + `</span> <span><img class="papelera" src="assets/img/basura.png" alt="" onclick="borrarMensaje(${item.men_id})"></span> </div>` ;
+                html += `<div class="mensajes">  `+ item.usu_nombre  + item.men_mensaje + `<span class="fecha">` + item.men_fecha_hora + `</span> <span><img class="papeleraA" src="assets/img/basura.png" alt="" onclick="borrarMensaje(${item.men_id})"></span> </div>` ;
                 html += `</ul>`;
             });
             html += "<input type='text' id='mensajeInput' placeholder='Escribe tu mensaje...'>";
@@ -157,6 +157,7 @@ function AgregarMensaje(tema_id){
         }
     })
     .catch(() => {
+        alert("Mensaje Enviado");
         window.location.reload();
     });
 }
@@ -205,7 +206,7 @@ function CargarMensajeAdmin(tema_id) {
                 html += `<span class="nombre">` + item.usu_nombre + `</span>` 
                 html += item.men_mensaje 
                 html += `<span class="fecha">` + item.men_fecha_hora + `</span>`
-                html += `<span><img class="papelera" src="assets/img/basura.png" alt="" onclick="borrarMensaje(${item.men_id})"></span>`;
+                html += `<span><img class="papeleraA" src="assets/img/basura.png" alt="" onclick="borrarMensaje(${item.men_id})"></span>`;
                 html += `</ul>`;
             });
             html += "<input type='text' id='mensajeInput' placeholder='Escribe tu mensaje...'>";
